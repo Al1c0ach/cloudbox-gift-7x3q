@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f2eadf">
-  <meta name="description" content="一台只为你一个人开机的泡泡玛特云朵抽盒机：一箱 10 盒，没有空盒。每箱 2 个随机 DIMOO + 8 个其他 IP，每天 5 次，每盒 2 次排除提示。">
+  <meta name="description" content="一台只为你一个人开机的泡泡玛特云朵抽盒机：一箱 10 盒，没有空盒。每箱 2 个随机 DIMOO（含约 5% 隐藏款）+ 8 个其他 IP，可自由换下一批，每天 5 次，每盒 2 次排除提示。">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <title>云朵抽盒社 · 只为你</title>
 
@@ -15,7 +15,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="云朵抽盒">
   <meta property="og:title" content="云朵抽盒社 · 只为你">
-  <meta property="og:description" content="一箱 10 盒，没有空盒。每箱 2 个随机 DIMOO + 8 个其他泡泡玛特，抽中 DIMOO 就兑换。">
+  <meta property="og:description" content="一箱 10 盒，没有空盒。每箱 2 个随机 DIMOO（含隐藏款）+ 8 个其他泡泡玛特，可自由换批，抽中 DIMOO 就兑换。">
   <meta property="og:type" content="website">
   <meta property="og:image" content="./icons/og-cover.png">
   <meta property="og:image:width" content="1200">
@@ -74,6 +74,10 @@
       <path d="M4.8 4.8h14.4a2 2 0 0 1 2 2v7.5a2 2 0 0 1-2 2h-7.4l-4.3 3v-3H4.8a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
       <path d="M9.9 9.4a2.1 2.1 0 0 1 4.2 0c0 1.8-2.1 2-2.1 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
       <circle cx="11.9" cy="15.2" r=".9" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24">
+      <path d="M20 11.5a8 8 0 1 0-.7 4.5M20 4.5V11h-6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="m14.5 8 3-3-3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
   </svg>
 
@@ -170,6 +174,14 @@
           </div>
         </div>
 
+        <div class="batch-bar">
+          <p class="batch-note">换一批不消耗今日次数，会重置本箱进度</p>
+          <button class="batch-button" id="reshuffleButton" type="button">
+            <svg class="icon"><use href="#i-refresh"></use></svg>
+            换下一批十盒
+          </button>
+        </div>
+
         <section class="hint-card" id="hintCard" aria-labelledby="hintTitle">
           <div class="hint-top">
             <span class="hint-icon" aria-hidden="true">
@@ -216,7 +228,7 @@
           <span class="feature-text">
             <small>MY COLLECTION</small>
             <b>我的图鉴</b>
-            <em id="albumFeatureMeta">0 / 8 DIMOO</em>
+            <em id="albumFeatureMeta">0 / 9 DIMOO</em>
           </span>
           <svg class="icon feature-arrow"><use href="#i-arrow"></use></svg>
         </button>
@@ -268,7 +280,7 @@
       <p class="sheet-note">抽中 DIMOO 才兑换；其他泡泡玛特产品只收进图鉴，不兑换。</p>
 
       <div class="album-stats">
-        <div><strong id="statDimoo">0</strong><span>/ 8</span><small>遇见过的 DIMOO</small></div>
+        <div><strong id="statDimoo">0</strong><span>/ 9</span><small>DIMOO（含隐藏）</small></div>
         <div><strong id="statOther">0</strong><span>/ 8</span><small>其他泡泡玛特</small></div>
         <div><strong id="statDraws">0</strong><span>次</span><small>拆盒次数</small></div>
       </div>
@@ -301,11 +313,16 @@
         <div><strong>8</strong><span>个其他 IP</span></div>
       </div>
       <div class="odds-bar" aria-hidden="true"><i></i><b></b></div>
+      <p class="odds-hidden-note">
+        <svg class="icon"><use href="#i-spark"></use></svg>
+        隐藏款「春天亮起来」· 每批约 5%
+      </p>
 
       <div class="rule-list">
         <div><span>一箱盒数</span><b>10 盒</b></div>
         <div><span>空盒</span><b>0 个</b></div>
         <div><span>DIMOO（每箱随机款）</span><b>2 个</b></div>
+        <div><span>隐藏款 DIMOO（每批）</span><b>约 5%</b></div>
         <div><span>其他 IP（固定阵容）</span><b>8 个</b></div>
         <div><span>每日机会</span><b>5 次</b></div>
         <div><span>每盒排除提示</span><b>2 次</b></div>
@@ -313,12 +330,14 @@
       </div>
 
       <div class="rule-copy">
-        <p>一箱 10 盒，全部有产品，没有空盒。每箱固定 2 个 DIMOO + 8 个其他 IP；10 个产品互不重复，位置随机打乱。</p>
-        <p>每次换新箱，2 个 DIMOO 会从 8 款 DIMOO 款库中随机抽 2 款；8 个其他 IP 产品固定。每天 5 次机会，次日零点补满；这一箱没拆完会留到明天，10 盒拆完后自动换新箱。</p>
-        <p>开箱前随机挑一盒，抽中 DIMOO 的概率是 2/10 = 20%；已知开盒结果或提示后，剩余盒子的实际概率会变化。没有空盒，也没有保底。</p>
-        <p><b>兑换约定：</b>抽中 DIMOO 款式，截图给我，我去买对应盲盒；抽中其他泡泡玛特产品，按约定不兑换，只会收进图鉴。</p>
-        <p>每个盒子有 2 次“排除提示”。提示会从本箱 10 个产品里排除一个，不会改变盒内结果。提示会跟着盒子保留，拆完这一箱换新箱时才刷新。</p>
-        <p class="rule-highlight">2 个 DIMOO + 8 个其他 IP，刚好是 10 盒全都有产品的抽盒机。</p>
+        <p>一箱 10 盒，全部有产品，没有空盒。每箱固定 2 个 DIMOO + 8 个其他 IP 产品；10 个产品互不重复，位置随机打乱。</p>
+        <p>每批先掷一次隐藏：约 5% 概率把其中一个 DIMOO 换成隐藏款「春天亮起来」，剩下一个仍是常规 DIMOO；其余 95% 是 2 个常规 DIMOO。常规 DIMOO 从 8 款中不重复抽取。</p>
+        <p>8 个其他 IP 产品固定。每天 5 次机会，次日零点补满；这一箱没拆完会留到明天，10 盒拆完后自动换新箱。</p>
+        <p>开箱前随机挑一盒，抽中 DIMOO 的概率是 2/10 = 20%（隐藏款也算 DIMOO）；已知开盒结果或提示后，剩余盒子的实际概率会变化。没有空盒，也没有保底。</p>
+        <p><b>换下一批：</b>点盒子下面的“换下一批十盒”，可以不消耗今日次数自由换一批。新一批会重新随机 2 个 DIMOO、隐藏款和 10 个盒位，并重置本箱进度和提示；已经拆到的产品、图鉴和次数都保留。</p>
+        <p><b>兑换约定：</b>抽中 DIMOO 或隐藏款，截图给我，我去买对应盲盒；抽中其他泡泡玛特产品，按约定不兑换，只会收进图鉴。</p>
+        <p>每个盒子有 2 次“排除提示”。提示会从本箱 10 个产品里排除一个，不会改变盒内结果。提示会跟着盒子保留，拆完这一箱或换下一批时才刷新。</p>
+        <p class="rule-highlight">2 个 DIMOO + 8 个其他 IP，隐藏款也藏在其中一盒。</p>
       </div>
 
       <div class="machine-roster">
@@ -326,7 +345,7 @@
           <span>MACHINE LINE-UP</span>
           <b>本箱 10 个产品</b>
         </div>
-        <p class="roster-summary">2 个 DIMOO · 8 个其他 IP · 没有空盒</p>
+        <p class="roster-summary">2 个 DIMOO（含隐藏）· 8 个其他 IP · 没有空盒</p>
         <div id="machineRoster"></div>
       </div>
 
