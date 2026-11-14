@@ -174,8 +174,8 @@ d.text((88, 122), "A TINY SURPRISE, JUST FOR YOU", font=font_eyebrow, fill=(128,
 d.text((82, 178), "云朵抽盒社", font=font_title, fill=(53, 42, 60))
 d.text((88, 302), "今天，也拆一点好运气。", font=font_sub, fill=(105, 88, 115))
 d.rounded_rectangle((88, 374, 466, 432), radius=29, fill=(255, 252, 246, 170), outline=(126, 102, 140, 45), width=1)
-d.text((112, 390), "一箱 10 盒  ·  2 个 DIMOO + 8 个其他 IP", font=font_small, fill=(102, 82, 112))
-d.text((88, 482), "没有空盒  ·  抽中 DIMOO 才兑换  ·  每天 5 次", font=font_small, fill=(137, 118, 145))
+d.text((112, 390), "一箱 10 盒  ·  2 个随机 DIMOO + 8 个其他 IP", font=font_small, fill=(102, 82, 112))
+d.text((88, 482), "没有空盒  ·  隐藏款约 5%  ·  可自由换批", font=font_small, fill=(137, 118, 145))
 d.text((88, 552), "CLOUD BOX CLUB   ·   NO. 001", font=font_eyebrow, fill=(154, 134, 155))
 
 card_w = 380
