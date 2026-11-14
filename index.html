@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2eadf">
+  <meta name="description" content="一台只为你一个人开机的泡泡玛特云朵抽盒机：一箱 10 盒，没有空盒。每箱 2 个随机 DIMOO + 8 个其他 IP，每天 5 次，每盒 2 次排除提示。">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>云朵抽盒社 · 只为你</title>
+
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="云朵抽盒">
+  <meta property="og:title" content="云朵抽盒社 · 只为你">
+  <meta property="og:description" content="一箱 10 盒，没有空盒。每箱 2 个随机 DIMOO + 8 个其他泡泡玛特，抽中 DIMOO 就兑换。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./icons/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-cloud" viewBox="0 0 32 24">
+      <path d="M9.7 20.8h13.1a6 6 0 0 0 1.2-11.9A8.1 8.1 0 0 0 8.4 10a5.4 5.4 0 0 0 1.3 10.8Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 13.4c0 1.1.8 2 1.9 2s1.9-.9 1.9-2M18.3 13.4c0 1.1.8 2 1.9 2s1.9-.9 1.9-2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M15.2 17.2c.5.4 1.1.4 1.6 0" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-sound-on" viewBox="0 0 24 24">
+      <path d="M4 9.5v5h3.5L13 19V5L7.5 9.5H4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M16.2 8.6a5 5 0 0 1 0 6.8M18.7 6.2a8.2 8.2 0 0 1 0 11.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-sound-off" viewBox="0 0 24 24">
+      <path d="M4 9.5v5h3.5L13 19V5L7.5 9.5H4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="m16.4 9.8 4.2 4.2M20.6 9.8l-4.2 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24">
+      <rect x="4" y="4" width="6.2" height="6.2" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="13.8" y="4" width="6.2" height="6.2" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="4" y="13.8" width="6.2" height="6.2" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="13.8" y="13.8" width="6.2" height="6.2" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h13M13 6.5 18.5 12 13 17.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24">
+      <path d="m6.5 6.5 11 11m0-11-11 11" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-info" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 10.6v5.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="12" cy="7.8" r="1.05" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24">
+      <path d="M12 2.8c.6 5.6 3.6 8.6 9.2 9.2-5.6.6-8.6 3.6-9.2 9.2-.6-5.6-3.6-8.6-9.2-9.2 5.6-.6 8.6-3.6 9.2-9.2Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M12 20s-7.4-4.5-7.4-10A4.1 4.1 0 0 1 12 7.2 4.1 4.1 0 0 1 19.4 10c0 5.5-7.4 10-7.4 10Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24">
+      <rect x="5.5" y="10" width="13" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M8.5 10V7.8a3.5 3.5 0 0 1 7 0V10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="12" cy="15" r="1.2" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-ticket" viewBox="0 0 24 24">
+      <path d="M4 8.8A2.8 2.8 0 0 1 6.8 6h10.4A2.8 2.8 0 0 1 20 8.8V10a2 2 0 0 0 0 4v1.2a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 15.2V14a2 2 0 0 0 0-4V8.8Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M9 9.2v5.6M12.8 9.4h4.1M12.8 12.3h3M12.8 15.2h2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-hint" viewBox="0 0 24 24">
+      <path d="M4.8 4.8h14.4a2 2 0 0 1 2 2v7.5a2 2 0 0 1-2 2h-7.4l-4.3 3v-3H4.8a2 2 0 0 1-2-2V6.8a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M9.9 9.4a2.1 2.1 0 0 1 4.2 0c0 1.8-2.1 2-2.1 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="11.9" cy="15.2" r=".9" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--one"></div>
+    <div class="ambient-orb ambient-orb--two"></div>
+    <div class="ambient-orb ambient-orb--three"></div>
+    <svg class="doodle doodle--cloud" viewBox="0 0 160 90">
+      <path d="M26 69h104c15 0 24-10 24-23s-11-22-25-21C124 10 111 2 95 5 83-2 63 2 56 17 36 13 19 25 19 42c-8 6-10 14-6 21 3 4 7 6 13 6Z" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M55 48c0 4 3 7 7 7s7-3 7-7m19 0c0 4 3 7 7 7s7-3 7-7" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+      <path d="M71 63c5 4 12 4 17 0" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+    </svg>
+    <span class="doodle doodle--star">✦</span>
+    <span class="doodle doodle--star2">✧</span>
+    <span class="side-note side-note--left">A TINY SURPRISE · MADE SLOWLY</span>
+    <span class="side-note side-note--right">FOR ONE PERSON ONLY · NO. 001</span>
+  </div>
+
+  <div class="app">
+    <header class="site-head">
+      <div class="wordmark" aria-label="云朵抽盒社">
+        <span class="wordmark-mark">
+          <svg class="icon"><use href="#i-cloud"></use></svg>
+        </span>
+        <span class="wordmark-text">
+          <b>云朵抽盒社</b>
+          <small>CLOUD BOX CLUB</small>
+        </span>
+      </div>
+      <div class="head-actions">
+        <button class="icon-button" id="soundButton" type="button" aria-label="关闭音效" aria-pressed="true">
+          <svg class="icon icon--sound-on"><use href="#i-sound-on"></use></svg>
+          <svg class="icon icon--sound-off"><use href="#i-sound-off"></use></svg>
+        </button>
+        <button class="album-button" id="openAlbumButton" type="button" aria-label="打开我的图鉴">
+          <svg class="icon"><use href="#i-grid"></use></svg>
+          <span>图鉴</span>
+          <b id="albumBadge">0</b>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow"><span></span> A TINY SURPRISE, JUST FOR YOU</p>
+        <h1>把今天的好运，<br><em>轻轻拆开。</em></h1>
+        <p class="hero-copy">一台只为你一个人开机的 DIMOO 云朵抽盒机。<br>挑一盒，看看今天藏着谁。</p>
+        <div class="hero-meta">
+          <span class="hero-meta-dot"></span>
+          <span>每天 5 次</span>
+          <i></i>
+          <span>每盒 2 次提示</span>
+          <i></i>
+          <span>2 随机 DIMOO + 8 其他 IP</span>
+        </div>
+        <p class="hero-rule"><span></span>抽中 DIMOO 才兑换，其他泡泡玛特只收进图鉴</p>
+        <div class="hero-spark" aria-hidden="true">
+          <svg viewBox="0 0 52 52"><path d="M26 3c1.4 12.3 8 18.9 20.3 20.3C34 24.7 27.4 31.3 26 43.6 24.6 31.3 18 24.7 5.7 23.3 18 21.9 24.6 15.3 26 3Z" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+        </div>
+      </section>
+
+      <section class="pass" aria-labelledby="passTitle">
+        <div class="pass-main">
+          <p class="pass-label" id="passTitle">DAILY PASS <span>·</span> 今日机会</p>
+          <div class="pass-count"><strong id="chanceNum">5</strong><span>/ 5</span></div>
+          <p class="pass-reset">距下次补给 <time id="countdown">--:--:--</time></p>
+        </div>
+        <div class="pass-side">
+          <div class="capsule-row" id="capsuleRow" aria-hidden="true"></div>
+          <span class="pass-tip">今天也要慢慢挑</span>
+        </div>
+        <svg class="pass-flower" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50 48c-2-16 4-25 16-28-1 13-7 21-16 28Zm0 0c2-16-4-25-16-28 1 13 7 21 16 28Zm0 0c15-6 25-3 31 8-12 5-21 2-31-8Zm0 0c-15-6-25-3-31 8 12 5 21 2 31-8Z" fill="none" stroke="currentColor" stroke-width="1.1"/>
+          <circle cx="50" cy="48" r="4" fill="currentColor" opacity=".55"/>
+          <path d="M50 53v22" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        </svg>
+      </section>
+
+      <section class="shelf-section" aria-labelledby="shelfTitle">
+        <div class="section-head">
+          <div>
+            <p class="section-label">CLOUD CASE · 一箱十盒</p>
+            <h2 id="shelfTitle">挑一盒喜欢的</h2>
+          </div>
+          <span class="odds-chip">2 随机 DIMOO · 8 其他 IP</span>
+        </div>
+
+        <div class="shelf" aria-label="盲盒选择区">
+          <div class="shelf-arch" aria-hidden="true"></div>
+          <div class="shelf-hanger" aria-hidden="true"><span>CASE OF 10</span></div>
+          <div class="box-grid" id="boxGrid"></div>
+          <div class="shelf-base" aria-hidden="true">
+            <span></span><b id="shelfProgress">一箱 10 盒 · 已拆 0 / 10</b><span></span>
+          </div>
+        </div>
+
+        <section class="hint-card" id="hintCard" aria-labelledby="hintTitle">
+          <div class="hint-top">
+            <span class="hint-icon" aria-hidden="true">
+              <svg class="icon"><use href="#i-hint"></use></svg>
+            </span>
+            <div class="hint-copy">
+              <p class="section-label" id="hintEyebrow">BOX WHISPER · No.01</p>
+              <h3 id="hintTitle">让盒子说一个“不是”</h3>
+            </div>
+            <span class="hint-counter" id="hintCounter">剩 2 次</span>
+          </div>
+          <div class="hint-slips" id="hintSlips" aria-live="polite">
+            <span class="hint-placeholder">每个盒子有 2 次提示，每次排除一个产品</span>
+          </div>
+          <button class="hint-button" id="hintButton" type="button">
+            <span class="hint-button-icon" aria-hidden="true">
+              <svg class="icon"><use href="#i-spark"></use></svg>
+            </span>
+            <span class="hint-button-copy">
+              <b id="hintButtonLabel">摇一摇，问盒子</b>
+              <small id="hintButtonSub">提示只排除本箱产品</small>
+            </span>
+            <span class="hint-badge" id="hintBadge">2</span>
+          </button>
+        </section>
+      </section>
+
+      <div class="draw-area">
+        <button class="draw-button" id="drawButton" type="button">
+          <span class="draw-button-copy">
+            <b id="drawButtonLabel">拆开这一盒</b>
+            <small id="drawButtonSub">已选 No.01 · 还剩 5 次</small>
+          </span>
+          <span class="draw-button-arrow">
+            <svg class="icon"><use href="#i-arrow"></use></svg>
+          </span>
+        </button>
+        <p class="draw-note" id="drawNote">每一盒都包了糖纸，选最顺眼的那一个。</p>
+      </div>
+
+      <div class="feature-grid">
+        <button class="feature-card" id="albumFeature" type="button">
+          <span class="feature-icon feature-icon--lilac"><svg class="icon"><use href="#i-grid"></use></svg></span>
+          <span class="feature-text">
+            <small>MY COLLECTION</small>
+            <b>我的图鉴</b>
+            <em id="albumFeatureMeta">0 / 8 DIMOO</em>
+          </span>
+          <svg class="icon feature-arrow"><use href="#i-arrow"></use></svg>
+        </button>
+        <button class="feature-card" id="oddsFeature" type="button">
+          <span class="feature-icon feature-icon--sand"><svg class="icon"><use href="#i-info"></use></svg></span>
+          <span class="feature-text">
+            <small>ODDS & RULES</small>
+            <b>概率说明</b>
+            <em>2 DIMOO + 8 其他 IP</em>
+          </span>
+          <svg class="icon feature-arrow"><use href="#i-arrow"></use></svg>
+        </button>
+      </div>
+
+      <section class="love-note" aria-label="写在最后的话">
+        <span class="love-note-quote" aria-hidden="true">“</span>
+        <p>抽到什么都好，<br>反正你已经有我了。</p>
+        <small>FROM THE ONE WHO MADE THIS · 仅此一台</small>
+        <svg class="love-note-heart" aria-hidden="true"><use href="#i-heart"></use></svg>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <span>个人制作 · 非官方同人小工具</span>
+      <span>NO REAL TRANSACTION · 2026</span>
+    </footer>
+  </div>
+
+  <dialog class="draw-dialog" id="drawDialog" aria-label="拆盒">
+    <div class="draw-viewport" id="drawViewport">
+      <div class="draw-card" id="drawCard"></div>
+    </div>
+    <div class="fx-layer" id="fxLayer" aria-hidden="true"></div>
+  </dialog>
+
+  <dialog class="sheet-dialog" id="albumDialog" aria-labelledby="albumTitle">
+    <div class="sheet">
+      <div class="sheet-grip" aria-hidden="true"></div>
+      <header class="sheet-head">
+        <div>
+          <p class="section-label">MY COLLECTION</p>
+          <h2 id="albumTitle">云朵图鉴</h2>
+        </div>
+        <button class="close-button" type="button" data-close-dialog aria-label="关闭图鉴">
+          <svg class="icon"><use href="#i-close"></use></svg>
+        </button>
+      </header>
+
+      <p class="sheet-note">抽中 DIMOO 才兑换；其他泡泡玛特产品只收进图鉴，不兑换。</p>
+
+      <div class="album-stats">
+        <div><strong id="statDimoo">0</strong><span>/ 8</span><small>遇见过的 DIMOO</small></div>
+        <div><strong id="statOther">0</strong><span>/ 8</span><small>其他泡泡玛特</small></div>
+        <div><strong id="statDraws">0</strong><span>次</span><small>拆盒次数</small></div>
+      </div>
+
+      <div class="collection-grid" id="collectionGrid"></div>
+
+      <div class="album-footer">
+        <p>每一款都算数，慢慢把图鉴填满。</p>
+        <span>记录只保存在这台设备上</span>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="sheet-dialog" id="oddsDialog" aria-labelledby="oddsTitle">
+    <div class="sheet">
+      <div class="sheet-grip" aria-hidden="true"></div>
+      <header class="sheet-head">
+        <div>
+          <p class="section-label">ODDS & RULES</p>
+          <h2 id="oddsTitle">关于这台抽盒机</h2>
+        </div>
+        <button class="close-button" type="button" data-close-dialog aria-label="关闭概率说明">
+          <svg class="icon"><use href="#i-close"></use></svg>
+        </button>
+      </header>
+
+      <div class="odds-hero">
+        <div><strong>2</strong><span>个 DIMOO</span></div>
+        <b>+</b>
+        <div><strong>8</strong><span>个其他 IP</span></div>
+      </div>
+      <div class="odds-bar" aria-hidden="true"><i></i><b></b></div>
+
+      <div class="rule-list">
+        <div><span>一箱盒数</span><b>10 盒</b></div>
+        <div><span>空盒</span><b>0 个</b></div>
+        <div><span>DIMOO（每箱随机款）</span><b>2 个</b></div>
+        <div><span>其他 IP（固定阵容）</span><b>8 个</b></div>
+        <div><span>每日机会</span><b>5 次</b></div>
+        <div><span>每盒排除提示</span><b>2 次</b></div>
+        <div><span>补给时间</span><b>北京时间 00:00</b></div>
+      </div>
+
+      <div class="rule-copy">
+        <p>一箱 10 盒，全部有产品，没有空盒。每箱固定 2 个 DIMOO + 8 个其他 IP；10 个产品互不重复，位置随机打乱。</p>
+        <p>每次换新箱，2 个 DIMOO 会从 8 款 DIMOO 款库中随机抽 2 款；8 个其他 IP 产品固定。每天 5 次机会，次日零点补满；这一箱没拆完会留到明天，10 盒拆完后自动换新箱。</p>
+        <p>开箱前随机挑一盒，抽中 DIMOO 的概率是 2/10 = 20%；已知开盒结果或提示后，剩余盒子的实际概率会变化。没有空盒，也没有保底。</p>
+        <p><b>兑换约定：</b>抽中 DIMOO 款式，截图给我，我去买对应盲盒；抽中其他泡泡玛特产品，按约定不兑换，只会收进图鉴。</p>
+        <p>每个盒子有 2 次“排除提示”。提示会从本箱 10 个产品里排除一个，不会改变盒内结果。提示会跟着盒子保留，拆完这一箱换新箱时才刷新。</p>
+        <p class="rule-highlight">2 个 DIMOO + 8 个其他 IP，刚好是 10 盒全都有产品的抽盒机。</p>
+      </div>
+
+      <div class="machine-roster">
+        <div class="roster-title">
+          <span>MACHINE LINE-UP</span>
+          <b>本箱 10 个产品</b>
+        </div>
+        <p class="roster-summary">2 个 DIMOO · 8 个其他 IP · 没有空盒</p>
+        <div id="machineRoster"></div>
+      </div>
+
+      <div class="disclaimer">
+        <svg class="icon"><use href="#i-info"></use></svg>
+        <p>本页面为个人制作的同人向小工具，非泡泡玛特官方产品。DIMOO、MOLLY、SKULLPANDA、CRYBABY 的产品名仅用于私人抽盒结果的索引；所有插画均为私人手绘同人版本，其他 IP 只绘制了包装盒，并非官方商品图。页面不售卖任何商品，也不涉及真实交易；抽盒记录仅保存在当前浏览器里，换设备或清理浏览器数据后不会同步。</p>
+      </div>
+
+      <button class="sheet-primary" type="button" data-close-dialog>知道啦</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="sr-only" id="liveRegion" aria-live="polite"></div>
+  <noscript><div class="noscript">请打开 JavaScript，才可以拆盒哦。</div></noscript>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
