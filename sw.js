@@ -1,5 +1,5 @@
 /* 云朵抽盒社 · offline shell */
-const CACHE_NAME = "cloudbox-gift-v10";
+const CACHE_NAME = "cloudbox-gift-v11";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -29,6 +29,17 @@ const APP_SHELL = [
   "./assets/dimoo/light-up.webp",
   "./assets/dimoo/candy-for-you.webp",
   "./assets/dimoo/spring-lights-up.webp",
+  "./assets/dimoo/between-dreams.webp",
+  "./assets/dimoo/riding-wind.webp",
+  "./assets/dimoo/wishwood.webp",
+  "./assets/other/molly-classic.webp",
+  "./assets/other/molly-little-moon.webp",
+  "./assets/other/skullpanda-warmth.webp",
+  "./assets/other/skullpanda-day-off.webp",
+  "./assets/other/crybaby-bunny.webp",
+  "./assets/other/crybaby-bear.webp",
+  "./assets/other/crybaby-stolen-heart.webp",
+  "./assets/other/crybaby-rose.webp",
 ];
 
 self.addEventListener("install", (event) => {

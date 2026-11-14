@@ -376,6 +376,72 @@
     }
   );
 
+  DIMOO_STYLES.push(
+    {
+      id: "between-dreams",
+      no: "17",
+      name: "梦里梦外",
+      en: "BETWEEN DREAMS AND REALITY",
+      ip: "DIMOO",
+      seriesLabel: "飞向梦里系列",
+      seriesShort: "飞向梦里",
+      redeemable: true,
+      quote: "现实与梦之间，藏着一个小小的你。",
+      prop: "moon",
+      palette: {
+        hair: "#c9d7ea",
+        hairDeep: "#a7b9d2",
+        outfit: "#9aaecb",
+        outfitDeep: "#7d92b1",
+        accent: "#f0d39a",
+        cardA: "#eef4fb",
+        cardB: "#dbe6f3",
+      },
+    },
+    {
+      id: "riding-wind",
+      no: "18",
+      name: "乘风",
+      en: "RIDING THE WIND",
+      ip: "DIMOO",
+      seriesLabel: "飞向梦里系列",
+      seriesShort: "飞向梦里",
+      redeemable: true,
+      quote: "乘着风，去梦里最远的地方。",
+      prop: "paper",
+      palette: {
+        hair: "#e6d5bb",
+        hairDeep: "#cbb693",
+        outfit: "#b9c6a7",
+        outfitDeep: "#95a584",
+        accent: "#f1c87c",
+        cardA: "#f3f7ec",
+        cardB: "#e2ead6",
+      },
+    },
+    {
+      id: "wishwood",
+      no: "19",
+      name: "许愿木",
+      en: "THE WISHWOOD",
+      ip: "DIMOO",
+      seriesLabel: "飞向梦里系列",
+      seriesShort: "飞向梦里",
+      redeemable: true,
+      quote: "把心愿挂上树枝，等它慢慢发光。",
+      prop: "flower",
+      palette: {
+        hair: "#d8e0c2",
+        hairDeep: "#b9c49e",
+        outfit: "#a9b98b",
+        outfitDeep: "#89996d",
+        accent: "#f0d27e",
+        cardA: "#f2f6e9",
+        cardB: "#dfe8cd",
+      },
+    }
+  );
+
   const HIDDEN_DIMOO_STYLE = {
     id: "spring-lights-up",
     no: "H1",
@@ -500,10 +566,10 @@
       id: "crybaby-bunny",
       no: "13",
       name: "哭哭兔",
-      en: "ALL MY LOVE",
+      en: "I'LL GIVE YOU ALL MY LOVE",
       ip: "CRYBABY",
-      seriesLabel: "Crying Again 系列",
-      seriesShort: "Crying Again",
+      seriesLabel: "Crying Again 毛绒系列",
+      seriesShort: "Crying Again 毛绒",
       redeemable: false,
       quote: "今天不哭，把眼泪留给值得的事。",
       label: "CRYBABY",
@@ -524,10 +590,10 @@
       id: "crybaby-bear",
       no: "14",
       name: "哭哭熊",
-      en: "LOVE MAKE US CRY",
+      en: "LOVE MAKES US CRY",
       ip: "CRYBABY",
-      seriesLabel: "Crying Again 系列",
-      seriesShort: "Crying Again",
+      seriesLabel: "Crying Again 毛绒系列",
+      seriesShort: "Crying Again 毛绒",
       redeemable: false,
       quote: "抱一下，眼泪就变甜了。",
       label: "CRYBABY",
@@ -594,6 +660,21 @@
     },
   ];
 
+  const OTHER_IMAGES = {
+    "molly-classic": "./assets/other/molly-classic.webp",
+    "molly-little-moon": "./assets/other/molly-little-moon.webp",
+    "skullpanda-warmth": "./assets/other/skullpanda-warmth.webp",
+    "skullpanda-day-off": "./assets/other/skullpanda-day-off.webp",
+    "crybaby-bunny": "./assets/other/crybaby-bunny.webp",
+    "crybaby-bear": "./assets/other/crybaby-bear.webp",
+    "crybaby-stolen-heart": "./assets/other/crybaby-stolen-heart.webp",
+    "crybaby-rose": "./assets/other/crybaby-rose.webp",
+  };
+
+  for (const style of OTHER_STYLES) {
+    if (OTHER_IMAGES[style.id]) style.image = OTHER_IMAGES[style.id];
+  }
+
   const DIMOO_IMAGES = {
     "packed-spring": "./assets/dimoo/packed-spring.webp",
     blossom: "./assets/dimoo/blossom.webp",
@@ -612,6 +693,9 @@
     "light-up": "./assets/dimoo/light-up.webp",
     "candy-for-you": "./assets/dimoo/candy-for-you.webp",
     "spring-lights-up": "./assets/dimoo/spring-lights-up.webp",
+    "between-dreams": "./assets/dimoo/between-dreams.webp",
+    "riding-wind": "./assets/dimoo/riding-wind.webp",
+    wishwood: "./assets/dimoo/wishwood.webp",
   };
 
   for (const style of [...DIMOO_STYLES, HIDDEN_DIMOO_STYLE]) {
@@ -1729,7 +1813,7 @@
     const ownedOther = getOwnedOtherIds();
     const ownedCount = ownedDimoo.length + ownedOther.length;
     els.albumBadge.textContent = String(ownedCount);
-    els.albumFeatureMeta.textContent = `${ownedDimoo.length} / 17 DIMOO`;
+    els.albumFeatureMeta.textContent = `${ownedDimoo.length} / 20 DIMOO`;
     els.statDimoo.textContent = String(ownedDimoo.length);
     els.statOther.textContent = String(ownedOther.length);
     els.statDraws.textContent = String(state.stats.draws);
@@ -2039,7 +2123,7 @@
       remaining > 0 ? `再挑一盒 · 还剩 ${remaining} 次` : "收好，回盒架";
     const repeatLine = countForStyle > 1 ? ` · 第 ${countForStyle} 次遇见` : "";
     const ownedLine = isDimoo
-      ? `已收进图鉴 · DIMOO ${ownedDimoo}/17${repeatLine}`
+      ? `已收进图鉴 · DIMOO ${ownedDimoo}/20${repeatLine}`
       : `已收进图鉴 · 其他 IP ${ownedOther}/8${repeatLine}`;
 
     const body = isDimoo
@@ -2062,7 +2146,7 @@
           kicker: "ANOTHER POP MART · 不兑换",
           title: "是别的泡泡玛特呀。",
           sub: "这次不是 DIMOO。<br>按约定，这一只不买，只收进图鉴。",
-          art: otherProductSVG(style, `result-${record.at}`),
+          art: styleArtwork(style, `result-${record.at}`),
           badgeClass: "result-badge result-badge--other",
           badge: "其他泡泡玛特 · 不兑换",
           series: `${style.ip} · ${style.seriesLabel}`,

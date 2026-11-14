@@ -2,7 +2,7 @@
 
 一台只给一个人开机的泡泡玛特云朵抽盒机。参考泡泡玛特抽盒小程序的“挑盒 / 摇提示 / 拆盒 / 集图鉴”体验，做成了不需要服务器、打开就能玩的私人 H5。
 
-**现在没有空盲盒。一箱 10 盒，全部是产品；每箱固定 2 个 DIMOO + 8 个其他 IP。2 个 DIMOO 从 16 款常规 + 1 款隐藏里随机，隐藏款每批约 5% 概率出现；盒子下面可以自由“换下一批十盒”。**
+**现在没有空盲盒。一箱 10 盒，全部是产品；每箱固定 2 个 DIMOO + 8 个其他 IP。2 个 DIMOO 从 19 款常规 + 1 款隐藏里随机，隐藏款每批约 5% 概率出现；盒子下面可以自由“换下一批十盒”。所有款式都有对应的官方商品照片。**
 
 ![首页](preview/home-top.png)
 
@@ -11,32 +11,33 @@
 - **一箱 10 盒，全部有产品**：没有空盒、没有“再来一次”。
 - **每箱固定 2 个 DIMOO + 8 个其他 IP 产品**：10 个产品互不重复，位置每批重新打乱。
 - **隐藏款 DIMOO「春天亮起来」**：每批约 **5%** 概率把其中一个 DIMOO 换成隐藏款；剩下一个仍是常规 DIMOO。每批最多 1 个隐藏，隐藏也算 DIMOO，可兑换。
-- **16 款常规 DIMOO 随机**：最新「瞬间的奇遇」全 12 款 + 4 款经典，从 16 款里不重复抽 2 款；不是固定只出原来那四款。
-- **每个常规款都有对应商品照片**：结果页中间显示抽到的具体款式照片，不再用一张通用 DIMOO 插画代替。
+- **19 款常规 DIMOO 随机**：「瞬间的奇遇」全 12 款 +「飞向梦里」3 款 + 4 款经典，从 19 款里不重复抽 2 款；不是固定只出原来那四款。
+- **每个款式都有对应商品照片**：DIMOO 的 19 款常规 + 1 款隐藏，以及 MOLLY / SKULLPANDA / CRYBABY 的 8 款，都有自己的官方商品图；结果页中间显示抽到的具体款式照片，不再用通用插画代替。
 - **自由换下一批**：盒子下方有“换下一批十盒”。不消耗今日次数；会重新随机 2 个 DIMOO、隐藏款和 10 个盒位，并重置本箱进度和提示。已经拆到的产品、图鉴、统计和今日次数都保留。
 - **其他 8 个产品固定**：来自 MOLLY / SKULLPANDA / CRYBABY，共 2 个 MOLLY + 2 个 SKULLPANDA + 4 个 CRYBABY。每批变化的是 2 个 DIMOO、隐藏和 10 个盒位。
 - **每天 5 次机会**：北京时间 00:00 补满；这一箱没拆完会留到明天，10 盒拆完后自动换新箱。
 - **只有 DIMOO / 隐藏款才兑换**：抽中后截图给男朋友，他去买对应盲盒；抽中其他 IP 产品，按约定不兑换，只收进图鉴。
 - **每个盒子 2 次排除提示**：提示会从**本箱 10 个产品**里排除一个，不会改变盒内结果，也不会透露位置。
 - **提示跨天保留**：提示跟着盒子走；拆完这一箱或换下一批时才刷新。
-- **图鉴与记录**：16 款常规 DIMOO + 1 款隐藏 + 8 款其他 IP，共 25 个图鉴位；DIMOO 统计为 /17，并记录拆盒次数。
+- **图鉴与记录**：19 款常规 DIMOO + 1 款隐藏 + 8 款其他 IP，共 28 个图鉴位；DIMOO 统计为 /20，并记录拆盒次数。
 - **移动端优先**：支持添加到手机主屏幕，作为 PWA 离线打开。
 - **没有付费、没有后台、没有真实交易**：记录只存在当前浏览器里。
 
 ## 这一版新增
 
 - 补齐最新「瞬间的奇遇」全 12 款常规，另有 1 款隐藏；
-- 保留原来的 4 款经典，DIMOO 常规款扩到 16 款；
-- 每个常规款都有对应的官方商品照片，结果页中间直接显示抽到的具体款式；
+- 加入 2026 年 11 月最新的「飞向梦里」3 款常规；
+- 保留原来的 4 款经典，DIMOO 常规款扩到 19 款；
+- DIMOO、MOLLY、SKULLPANDA、CRYBABY 所有款式都补上了官方商品照片，结果页中间直接显示抽到的具体款式；
 - 加入隐藏款 DIMOO「春天亮起来」，每批约 5%；
 - 加入“换下一批十盒”按钮，可自由切换批次，不消耗次数；
 - 换批会重新随机 2 个 DIMOO、隐藏款和 10 个盒位；
 - 新批次的 2 个 DIMOO 组合会与上一批不同，不会连续刷出同一组；
-- 图鉴扩到 25 格，DIMOO 统计改为 /17。
+- 图鉴扩到 28 格，DIMOO 统计改为 /20。
 
 ## 完整产品池
 
-### DIMOO：每箱随机 2 个（常规 16 款 + 隐藏 1 款）
+### DIMOO：每箱随机 2 个（常规 19 款 + 隐藏 1 款）
 
 | 系列 | 款式 | 类型 |
 | --- | --- | --- |
@@ -52,6 +53,9 @@
 | 瞬间的奇遇系列 | 带我去远方 | 常规 |
 | 瞬间的奇遇系列 | 吹响春天 | 常规 |
 | 瞬间的奇遇系列 | 坠入花海 | 常规 |
+| 飞向梦里系列 | 梦里梦外 | 常规 |
+| 飞向梦里系列 | 乘风 | 常规 |
+| 飞向梦里系列 | 许愿木 | 常规 |
 | 动物王国系列 | 哄睡兔宝 | 常规 |
 | 动物王国系列 | 小鸭领队 | 常规 |
 | 在你身边系列 | 为你点灯 | 常规 |
@@ -59,7 +63,7 @@
 | 瞬间的奇遇系列 | **春天亮起来** | **隐藏款** |
 
 - 每批先掷一次隐藏：约 5% 概率变成“1 个隐藏 + 1 个常规”，其余 95% 是“2 个常规”。
-- 常规 DIMOO 从 16 款里不重复抽 2 款；隐藏款不会和另一只隐藏同时出现。
+- 常规 DIMOO 从 19 款里不重复抽 2 款；隐藏款不会和另一只隐藏同时出现。
 - 隐藏款出现时，本箱仍然是 2 个 DIMOO，不会变成 3 个。
 - 每款常规 DIMOO 都有独立照片，结果页和已解锁图鉴显示对应商品图，不会用同一张通用图代替。
 
@@ -71,8 +75,8 @@
 | MOLLY | 周年雕塑经典回归系列 | 月球小星星 | 不兑换 |
 | SKULLPANDA | 温度系列 | 下雨天 | 不兑换 |
 | SKULLPANDA | 温度系列 | 放轻松 | 不兑换 |
-| CRYBABY | Crying Again 系列 | 哭哭兔 | 不兑换 |
-| CRYBABY | Crying Again 系列 | 哭哭熊 | 不兑换 |
+| CRYBABY | Crying Again 毛绒系列 | 哭哭兔 | 不兑换 |
+| CRYBABY | Crying Again 毛绒系列 | 哭哭熊 | 不兑换 |
 | CRYBABY | Crying For Love 系列 | 偷心大盗 | 不兑换 |
 | CRYBABY | Crying For Love 系列 | 等爱的玫瑰红 | 不兑换 |
 
@@ -96,6 +100,10 @@
 | 其他 IP（不兑换） | 云朵图鉴 |
 | --- | --- |
 | ![其他 IP](preview/other.png) | ![图鉴](preview/album.png) |
+
+其他 8 款也已经全部换成官方照片：
+
+![其他 IP 图鉴](preview/album-other.png)
 
 本箱 10 个产品可以在“概率说明”里查看，隐藏款会单独标出来：
 
@@ -146,7 +154,7 @@ python -m http.server 4173
 
 打开 `app.js`：
 
-- `DIMOO_STYLES`：16 款常规 DIMOO 候选池（最新 12 款 + 经典 4 款）。
+- `DIMOO_STYLES`：19 款常规 DIMOO 候选池（瞬间的奇遇 12 款 + 飞向梦里 3 款 + 经典 4 款）。
 - `HIDDEN_DIMOO_STYLE`：隐藏款「春天亮起来」。
 - `OTHER_STYLES`：8 款其他 IP，每批全部放入。
 - `CONFIG.hiddenChance`：默认 `0.05`，即每批约 5%。改这里就能调隐藏概率；记得同步改页面上的“约 5%”文案。
@@ -201,7 +209,8 @@ cloudbox/
 ├── robots.txt                 禁止搜索引擎收录
 ├── _headers                   静态托管隐私响应头
 ├── assets/
-│   └── dimoo/                 DIMOO 各款式官方参考图
+│   ├── dimoo/                 DIMOO 各款式官方参考图
+│   └── other/                 MOLLY / SKULLPANDA / CRYBABY 官方参考图
 ├── icons/                     App 图标 / favicon / 分享封面
 ├── preview/                   README 截图
 ├── scripts/
@@ -213,12 +222,19 @@ cloudbox/
 
 这是一个个人制作的同人向小礼物，**不是泡泡玛特官方产品**。DIMOO、MOLLY、SKULLPANDA、CRYBABY 的产品名仅用于私人抽盒结果的索引。
 
-DIMOO 结果页和图鉴里的商品照片来自 POP MART 官方商品页，仅用于私人识别抽到的款式，版权归原权利人所有；其他 IP 的包装为手绘同人版本，并非官方商品图。页面不售卖任何商品，也不涉及真实交易，请不要商用或公开传播。
+DIMOO、MOLLY、SKULLPANDA、CRYBABY 的结果页和图鉴商品照片均来自 POP MART 官方商品页，仅用于私人识别抽到的款式，版权归原权利人所有；抽盒机外壳插画为手绘同人版本。页面不售卖任何商品，也不涉及真实交易，请不要商用或公开传播。
 
 图片来源：
 
 - [DIMOO Moments in Bloom Series Figures](https://www.popmart.com/us/products/5995/dimoo-moments-in-bloom-series-figures)
+- [DIMOO WORLD Into the Dreamscape Series Figures](https://www.popmart.com/ca/products/9611/dimoo-world-into-the-dreamscape-series-figures)
 - [DIMOO Animal Kingdom Series Figures](https://www.popmart.com/us/products/1019/dimoo-animal-kingdom-series-figures)
 - [DIMOO By Your Side Series Figures](https://www.popmart.com/en-US/products/1296/DIMOO-By-Your-Side-Series-Figures)
+- [MOLLY Scenery Along the Way 20th Anniversary Series Figures](https://www.popmart.com/us/products/6078/molly-scenery-along-the-way-20th-anniversary-series-figures)
+- [MOLLY Anniversary Statues Classical Retro Series Figures](https://www.popmart.com/us/products/575/molly-anniversary-statues-classical-retro-series-figures-3604)
+- [SKULLPANDA The Warmth Series](https://www.popmart.com/us/products/9/SKULLPANDA-The-Warmth-Series)
+- [CRYBABY Crying Again Series Figures](https://www.popmart.com/us/products/1532/crybaby-crying-again-series-figures)
+- [CRYBABY Crying Again Vinyl Face Plush](https://www.popmart.com/ca/products/1815/crybaby-crying-again-series-vinyl-face-plush-blind-box)
+- [CRYBABY Crying For Love Series Figures](https://www.popmart.com/us/products/1870/local-warehouse-crybaby-crying-for-love-series-figures)
 
 抽中 DIMOO 或隐藏款才是真的中奖；其他 IP 产品按约定只收进图鉴。每一批的 DIMOO 和隐藏款都是随机来的，下一批可能就换成别的组合了。
