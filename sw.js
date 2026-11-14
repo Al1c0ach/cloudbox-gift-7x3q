@@ -1,5 +1,5 @@
 /* 云朵抽盒社 · offline shell */
-const CACHE_NAME = "cloudbox-gift-v9";
+const CACHE_NAME = "cloudbox-gift-v10";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -12,6 +12,23 @@ const APP_SHELL = [
   "./icons/apple-touch-icon.png",
   "./icons/og-cover.png",
   "./robots.txt",
+  "./assets/dimoo/packed-spring.webp",
+  "./assets/dimoo/blossom.webp",
+  "./assets/dimoo/flying-spring.webp",
+  "./assets/dimoo/spring-overhead.webp",
+  "./assets/dimoo/hugging-spring.webp",
+  "./assets/dimoo/spring-recoil.webp",
+  "./assets/dimoo/caught-by-spring.webp",
+  "./assets/dimoo/boot.webp",
+  "./assets/dimoo/catching-spring.webp",
+  "./assets/dimoo/take-me-to-spring.webp",
+  "./assets/dimoo/spring-trumpet.webp",
+  "./assets/dimoo/falling-into-flowers.webp",
+  "./assets/dimoo/sleepy-bunny.webp",
+  "./assets/dimoo/duck-leader.webp",
+  "./assets/dimoo/light-up.webp",
+  "./assets/dimoo/candy-for-you.webp",
+  "./assets/dimoo/spring-lights-up.webp",
 ];
 
 self.addEventListener("install", (event) => {

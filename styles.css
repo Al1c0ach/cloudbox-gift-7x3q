@@ -2159,6 +2159,39 @@ dialog[open] {
   filter: drop-shadow(0 15px 15px rgba(74, 52, 73, 0.12));
 }
 
+.result-art--photo {
+  width: 252px;
+  max-width: 82%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin-top: 8px;
+}
+
+.result-art--photo::before,
+.result-art--photo::after {
+  display: none;
+}
+
+.result-art--photo .art-orbit {
+  display: none;
+}
+
+.result-art--photo > img.style-photo {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border: 4px solid rgba(255, 253, 247, 0.82);
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 20px 34px -23px rgba(57, 39, 66, 0.55);
+}
+
+.result--hidden .result-art--photo > img.style-photo {
+  border-color: rgba(246, 225, 184, 0.72);
+  box-shadow: 0 22px 36px -22px rgba(0, 0, 0, 0.55);
+}
+
 .art-orbit {
   position: absolute;
   top: 50%;
@@ -2903,6 +2936,13 @@ dialog[open] {
   width: 96%;
   height: 96%;
   object-fit: contain;
+}
+
+.collect-art img.style-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 9px;
+  object-fit: cover;
 }
 
 .collect-card.is-locked .collect-art {

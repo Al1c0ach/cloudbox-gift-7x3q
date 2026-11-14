@@ -32,7 +32,8 @@
   // A case holds ten boxes and no empty boxes. Exactly two boxes contain DIMOO
   // products selected randomly from DIMOO_STYLES; the other eight boxes contain
   // the fixed OTHER_STYLES line-up. Every case is shuffled before play.
-  // All artwork is an original hand-drawn fan version, not official product art.
+  // DIMOO result photos are official product reference images, used only as a
+  // private visual index; the app itself is a fan-made gift and sells nothing.
   const DIMOO_STYLES = [
     {
       id: "packed-spring",
@@ -203,6 +204,177 @@
       },
     },
   ];
+
+  DIMOO_STYLES.push(
+    {
+      id: "hugging-spring",
+      no: "09",
+      name: "抱紧春天",
+      en: "HUGGING SPRING",
+      ip: "DIMOO",
+      seriesLabel: "瞬间的奇遇系列",
+      seriesShort: "瞬间的奇遇",
+      redeemable: true,
+      quote: "把整个春天，抱进怀里。",
+      prop: "flower",
+      palette: {
+        hair: "#f3d6dc",
+        hairDeep: "#d9b0bb",
+        outfit: "#c9b8d9",
+        outfitDeep: "#a997bd",
+        accent: "#f4d98d",
+        cardA: "#fbeff4",
+        cardB: "#ecd9e5",
+      },
+    },
+    {
+      id: "spring-recoil",
+      no: "10",
+      name: "春天的后坐力",
+      en: "SPRING RECOIL",
+      ip: "DIMOO",
+      seriesLabel: "瞬间的奇遇系列",
+      seriesShort: "瞬间的奇遇",
+      redeemable: true,
+      quote: "被春天推了一下，就飞起来了。",
+      prop: "sunset",
+      palette: {
+        hair: "#c9e3df",
+        hairDeep: "#9fc7c2",
+        outfit: "#8fbfc0",
+        outfitDeep: "#6fa2a5",
+        accent: "#f3c778",
+        cardA: "#eaf7f4",
+        cardB: "#d5ece7",
+      },
+    },
+    {
+      id: "caught-by-spring",
+      no: "11",
+      name: "被春天接住",
+      en: "CAUGHT BY SPRING",
+      ip: "DIMOO",
+      seriesLabel: "瞬间的奇遇系列",
+      seriesShort: "瞬间的奇遇",
+      redeemable: true,
+      quote: "别怕落下，春天会接住你。",
+      prop: "flower",
+      palette: {
+        hair: "#e8dfc3",
+        hairDeep: "#cabf9c",
+        outfit: "#a9c2a0",
+        outfitDeep: "#86a47e",
+        accent: "#f5e1a7",
+        cardA: "#f1f7e8",
+        cardB: "#dfeccf",
+      },
+    },
+    {
+      id: "boot",
+      no: "12",
+      name: "它住在靴子里",
+      en: "IT LIVES IN MY BOOT!",
+      ip: "DIMOO",
+      seriesLabel: "瞬间的奇遇系列",
+      seriesShort: "瞬间的奇遇",
+      redeemable: true,
+      quote: "把春天藏在靴子里，走很远的路。",
+      prop: "bear",
+      palette: {
+        hair: "#efd9a7",
+        hairDeep: "#d2b879",
+        outfit: "#b8c98c",
+        outfitDeep: "#95aa69",
+        accent: "#e4b45f",
+        cardA: "#fbf5df",
+        cardB: "#ece1bb",
+      },
+    },
+    {
+      id: "catching-spring",
+      no: "13",
+      name: "捕捉春天",
+      en: "CATCHING SPRING",
+      ip: "DIMOO",
+      seriesLabel: "瞬间的奇遇系列",
+      seriesShort: "瞬间的奇遇",
+      redeemable: true,
+      quote: "轻轻一网，抓住春天的翅膀。",
+      prop: "paper",
+      palette: {
+        hair: "#f0d8a9",
+        hairDeep: "#d3b77f",
+        outfit: "#c9c27d",
+        outfitDeep: "#a8a05e",
+        accent: "#e9c46a",
+        cardA: "#fbf4dc",
+        cardB: "#eee0b0",
+      },
+    },
+    {
+      id: "take-me-to-spring",
+      no: "14",
+      name: "带我去远方",
+      en: "TAKE ME TO SPRING",
+      ip: "DIMOO",
+      seriesLabel: "瞬间的奇遇系列",
+      seriesShort: "瞬间的奇遇",
+      redeemable: true,
+      quote: "带着春天，去更远的地方。",
+      prop: "paper",
+      palette: {
+        hair: "#c9d9ec",
+        hairDeep: "#a4b8d2",
+        outfit: "#a9b9d4",
+        outfitDeep: "#8798b7",
+        accent: "#f0d39a",
+        cardA: "#edf4fb",
+        cardB: "#d9e4f2",
+      },
+    },
+    {
+      id: "spring-trumpet",
+      no: "15",
+      name: "吹响春天",
+      en: "SPRING'S TRUMPET",
+      ip: "DIMOO",
+      seriesLabel: "瞬间的奇遇系列",
+      seriesShort: "瞬间的奇遇",
+      redeemable: true,
+      quote: "吹响一朵喇叭花，春天就醒了。",
+      prop: "flower",
+      palette: {
+        hair: "#efcdd5",
+        hairDeep: "#d2aab5",
+        outfit: "#c7a9cf",
+        outfitDeep: "#a98bb4",
+        accent: "#f4d27a",
+        cardA: "#fceff3",
+        cardB: "#eed8e5",
+      },
+    },
+    {
+      id: "falling-into-flowers",
+      no: "16",
+      name: "坠入花海",
+      en: "FALLING INTO FLOWERS",
+      ip: "DIMOO",
+      seriesLabel: "瞬间的奇遇系列",
+      seriesShort: "瞬间的奇遇",
+      redeemable: true,
+      quote: "坠入花海，被春天温柔包围。",
+      prop: "flower",
+      palette: {
+        hair: "#e7c9d8",
+        hairDeep: "#cba5b8",
+        outfit: "#c7a3ba",
+        outfitDeep: "#a77f96",
+        accent: "#f2d59b",
+        cardA: "#fbeff7",
+        cardB: "#ecd7e7",
+      },
+    }
+  );
 
   const HIDDEN_DIMOO_STYLE = {
     id: "spring-lights-up",
@@ -421,6 +593,30 @@
       },
     },
   ];
+
+  const DIMOO_IMAGES = {
+    "packed-spring": "./assets/dimoo/packed-spring.webp",
+    blossom: "./assets/dimoo/blossom.webp",
+    "flying-spring": "./assets/dimoo/flying-spring.webp",
+    "spring-overhead": "./assets/dimoo/spring-overhead.webp",
+    "hugging-spring": "./assets/dimoo/hugging-spring.webp",
+    "spring-recoil": "./assets/dimoo/spring-recoil.webp",
+    "caught-by-spring": "./assets/dimoo/caught-by-spring.webp",
+    boot: "./assets/dimoo/boot.webp",
+    "catching-spring": "./assets/dimoo/catching-spring.webp",
+    "take-me-to-spring": "./assets/dimoo/take-me-to-spring.webp",
+    "spring-trumpet": "./assets/dimoo/spring-trumpet.webp",
+    "falling-into-flowers": "./assets/dimoo/falling-into-flowers.webp",
+    "sleepy-bunny": "./assets/dimoo/sleepy-bunny.webp",
+    "duck-leader": "./assets/dimoo/duck-leader.webp",
+    "light-up": "./assets/dimoo/light-up.webp",
+    "candy-for-you": "./assets/dimoo/candy-for-you.webp",
+    "spring-lights-up": "./assets/dimoo/spring-lights-up.webp",
+  };
+
+  for (const style of [...DIMOO_STYLES, HIDDEN_DIMOO_STYLE]) {
+    if (DIMOO_IMAGES[style.id]) style.image = DIMOO_IMAGES[style.id];
+  }
 
   const STYLES = [...DIMOO_STYLES, HIDDEN_DIMOO_STYLE, ...OTHER_STYLES];
 
@@ -1313,8 +1509,14 @@
     </svg>`;
   };
 
-  const styleArtwork = (style, instance) =>
-    style.redeemable ? characterSVG(style, instance) : otherProductSVG(style, instance);
+  const styleArtwork = (style, instance) => {
+    if (style.image) {
+      return `<img class="style-photo" src="${style.image}" alt="${style.name}，${style.seriesLabel}" loading="${
+        instance.startsWith("result") ? "eager" : "lazy"
+      }" decoding="async" />`;
+    }
+    return style.redeemable ? characterSVG(style, instance) : otherProductSVG(style, instance);
+  };
 
   const boxVisualMarkup = (index) => {
     const color = BOX_COLORS[index % BOX_COLORS.length];
@@ -1527,7 +1729,7 @@
     const ownedOther = getOwnedOtherIds();
     const ownedCount = ownedDimoo.length + ownedOther.length;
     els.albumBadge.textContent = String(ownedCount);
-    els.albumFeatureMeta.textContent = `${ownedDimoo.length} / 9 DIMOO`;
+    els.albumFeatureMeta.textContent = `${ownedDimoo.length} / 17 DIMOO`;
     els.statDimoo.textContent = String(ownedDimoo.length);
     els.statOther.textContent = String(ownedOther.length);
     els.statDraws.textContent = String(state.stats.draws);
@@ -1837,7 +2039,7 @@
       remaining > 0 ? `再挑一盒 · 还剩 ${remaining} 次` : "收好，回盒架";
     const repeatLine = countForStyle > 1 ? ` · 第 ${countForStyle} 次遇见` : "";
     const ownedLine = isDimoo
-      ? `已收进图鉴 · DIMOO ${ownedDimoo}/9${repeatLine}`
+      ? `已收进图鉴 · DIMOO ${ownedDimoo}/17${repeatLine}`
       : `已收进图鉴 · 其他 IP ${ownedOther}/8${repeatLine}`;
 
     const body = isDimoo
@@ -1847,7 +2049,7 @@
           kicker: "YOU GOT A DIMOO · 可兑换",
           title: "是 DIMOO 呀。",
           sub: "这箱 10 个产品里，你抽到了 DIMOO。<br>截图发给我，我去买这一只。",
-          art: characterSVG(style, `result-${record.at}`),
+          art: styleArtwork(style, `result-${record.at}`),
           badgeClass: "result-badge",
           badge: "DIMOO 常规款 · 可兑换",
           series: `${style.ip} · ${style.seriesLabel}`,
@@ -1888,7 +2090,7 @@
       <p class="result-kicker">${body.kicker}</p>
       <h2>${body.title}</h2>
       <p class="result-sub">${body.sub}</p>
-      <div class="result-art">
+      <div class="result-art${style.image ? " result-art--photo" : ""}">
         <span class="art-orbit" aria-hidden="true"></span>
         ${body.art}
       </div>
