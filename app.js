@@ -9,6 +9,7 @@
   const CONFIG = Object.freeze({
     dailyChances: 5,
     boxCount: 10,
+    hiddenChance: 0.05,
     timeZone: "Asia/Shanghai",
     storageKey: "cloudbox.gift.v1",
     openingDuration: 1680,
@@ -202,6 +203,29 @@
       },
     },
   ];
+
+  const HIDDEN_DIMOO_STYLE = {
+    id: "spring-lights-up",
+    no: "H1",
+    name: "春天亮起来",
+    en: "SPRING LIGHTS UP",
+    ip: "DIMOO",
+    seriesLabel: "瞬间的奇遇系列",
+    seriesShort: "瞬间的奇遇 · 隐藏",
+    hidden: true,
+    redeemable: true,
+    quote: "春天亮起来的时候，所有云都变成了金色。",
+    prop: "aurora",
+    palette: {
+      hair: "#f3e2bd",
+      hairDeep: "#ddc18a",
+      outfit: "#e9d2a1",
+      outfitDeep: "#c7a766",
+      accent: "#d9aa52",
+      cardA: "#fbf0d7",
+      cardB: "#ecd5a8",
+    },
+  };
 
   const OTHER_STYLES = [
     {
@@ -398,7 +422,7 @@
     },
   ];
 
-  const STYLES = [...DIMOO_STYLES, ...OTHER_STYLES];
+  const STYLES = [...DIMOO_STYLES, HIDDEN_DIMOO_STYLE, ...OTHER_STYLES];
 
   const DIALOG_OPEN_CLASS = "modal-open";
 
@@ -415,6 +439,7 @@
     drawButtonSub: $("#drawButtonSub"),
     drawNote: $("#drawNote"),
     shelfProgress: $("#shelfProgress"),
+    reshuffleButton: $("#reshuffleButton"),
     hintCard: $("#hintCard"),
     hintEyebrow: $("#hintEyebrow"),
     hintCounter: $("#hintCounter"),
@@ -529,12 +554,41 @@
      Persistence
      ------------------------------------------------------- */
 
-  const makeCaseItems = () => {
-    // Exactly two distinct DIMOO products are chosen for every new case. The
-    // eight other-IP products are a fixed line-up, shuffled into the ten boxes.
-    const dimooPicks = shuffle(DIMOO_STYLES).slice(0, 2).map((style) => style.id);
-    const otherPicks = OTHER_STYLES.map((style) => style.id);
-    return shuffle([...dimooPicks, ...otherPicks]);
+  const makeCaseItems = (previousItems = null) => {
+    // Every batch has exactly two DIMOO. With CONFIG.hiddenChance the batch
+    // contains one hidden DIMOO plus one normal DIMOO; otherwise it has two
+    // normal DIMOO. The eight other-IP products stay fixed, but all ten box
+    // positions are shuffled again. When a previous batch is supplied, the
+    // DIMOO pair is regenerated until it differs from that batch, so switching
+    // batches never repeats the same DIMOO combination.
+    const build = () => {
+      const dimooPicks = [];
+      if (randomUnit() < CONFIG.hiddenChance) {
+        dimooPicks.push(HIDDEN_DIMOO_STYLE.id);
+        dimooPicks.push(shuffle(DIMOO_STYLES)[0].id);
+      } else {
+        dimooPicks.push(...shuffle(DIMOO_STYLES).slice(0, 2).map((style) => style.id));
+      }
+      const otherPicks = OTHER_STYLES.map((style) => style.id);
+      return shuffle([...dimooPicks, ...otherPicks]);
+    };
+
+    const dimooKey = (list) =>
+      list
+        .map((id) => getStyleById(id))
+        .filter((style) => style && style.ip === "DIMOO")
+        .map((style) => style.id)
+        .sort()
+        .join("|");
+
+    let next = build();
+    if (previousItems && previousItems.length) {
+      const previousKey = dimooKey(previousItems);
+      for (let attempt = 0; attempt < 30 && dimooKey(next) === previousKey; attempt += 1) {
+        next = build();
+      }
+    }
+    return next;
   };
 
   const makeHints = () =>
@@ -620,8 +674,9 @@
       savedItems.length === CONFIG.boxCount &&
       items.every(Boolean) &&
       new Set(savedItems).size === CONFIG.boxCount &&
-      items.filter((style) => style.redeemable).length === 2 &&
-      items.filter((style) => !style.redeemable).length === 8;
+      items.filter((style) => style.ip === "DIMOO").length === 2 &&
+      items.filter((style) => style.ip !== "DIMOO").length === 8 &&
+      items.filter((style) => style.hidden).length <= 1;
 
     let caseItems = itemsValid ? [...savedItems] : makeCaseItems();
     let caseOpened = [];
@@ -650,7 +705,7 @@
 
     // A completed case starts over cleanly.
     if (caseOpened.length >= CONFIG.boxCount) {
-      caseItems = makeCaseItems();
+      caseItems = makeCaseItems(caseItems);
       hints = makeHints();
       caseOpened = [];
     }
@@ -800,6 +855,15 @@
           <circle cx="222" cy="61" r="2" fill="${p.accent}" opacity=".65"/>
           <path d="M43 137c4-3 8-3 12-2" fill="none" stroke="${p.hairDeep}" stroke-width="1" stroke-linecap="round" opacity=".38"/>
         </g>`,
+      aurora: `
+        <g opacity=".95">
+          <circle cx="216" cy="73" r="41" fill="${p.accent}" opacity=".2"/>
+          <circle cx="216" cy="73" r="52" fill="none" stroke="${p.accent}" stroke-width="1" stroke-dasharray="2 8" opacity=".62"/>
+          <path d="M216 8v18M216 120v18M151 73h18M263 73h18M170 27l13 13M249 106l13 13M262 27l-13 13M183 106l-13 13" stroke="${p.accent}" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
+          <path d="M43 82c6-4 12-3 17 2M36 130c8-3 15-2 21 3" fill="none" stroke="${p.hairDeep}" stroke-width="1.1" stroke-linecap="round" opacity=".42"/>
+          <path d="M54 46v10M49 51h10" stroke="${p.accent}" stroke-width="1.2" stroke-linecap="round" opacity=".7"/>
+          <circle cx="229" cy="140" r="2" fill="${p.accent}" opacity=".7"/>
+        </g>`,
     };
 
     const headAccessories = {
@@ -897,6 +961,18 @@
           <circle cx="130" cy="46" r="9" fill="${p.hairDeep}"/>
           <circle cx="130" cy="46" r="3.5" fill="#fff6e6" opacity=".7"/>
           <path d="M92 82c6 5 13 8 21 10" fill="none" stroke="${p.hairDeep}" stroke-width="1.2" stroke-linecap="round" opacity=".32"/>
+        </g>`,
+      aurora: `
+        <g>
+          <path d="M76 92C69 54 94 31 130 31c38 0 61 23 54 61" fill="none" stroke="${p.accent}" stroke-width="1.2" stroke-dasharray="3 6" opacity=".5"/>
+          <g transform="translate(130 32)">
+            <path d="M-36 16 -28-8 -13 7 0-20 13 7 28-8 36 16Z" fill="${p.accent}" opacity=".95"/>
+            <circle cx="0" cy="-20" r="4" fill="#fff6dc"/>
+            <circle cx="-28" cy="-8" r="2.6" fill="#fff6dc" opacity=".9"/>
+            <circle cx="28" cy="-8" r="2.6" fill="#fff6dc" opacity=".9"/>
+            <path d="M-36 16h72" stroke="#fff6dc" stroke-width="1.2" opacity=".6"/>
+          </g>
+          <path d="M91 78c8 4 16 6 25 6M144 84c8 0 15-2 23-6" fill="none" stroke="${p.hairDeep}" stroke-width="1.2" stroke-linecap="round" opacity=".35"/>
         </g>`,
     };
 
@@ -996,6 +1072,13 @@
           <path d="M14 20 0 9v23Z" fill="${p.hairDeep}" stroke="${p.outfitDeep}" stroke-width="1" stroke-linejoin="round"/>
           <path d="M44 20 58 9v23Z" fill="${p.hairDeep}" stroke="${p.outfitDeep}" stroke-width="1" stroke-linejoin="round"/>
           <path d="M21 15c5 3 10 3 15 0M21 26c5 2 10 2 15 0" fill="none" stroke="#fff8e8" stroke-width="1" stroke-linecap="round" opacity=".55"/>
+        </g>`,
+      aurora: `
+        <g transform="translate(190 204)">
+          <circle cx="19" cy="20" r="21" fill="${p.accent}" opacity=".2"/>
+          <path d="M19-6 25 12 44 19 25 26 19 44 13 26-6 19 13 12Z" fill="#fff3ca" stroke="${p.accent}" stroke-width="1.3" stroke-linejoin="round"/>
+          <circle cx="19" cy="19" r="4.5" fill="#fffdf4" opacity=".8"/>
+          <path d="M38 2v7M34.5 5.5h7M0 38v6M-3 41h6" stroke="${p.accent}" stroke-width="1.3" stroke-linecap="round" opacity=".75"/>
         </g>`,
     };
 
@@ -1444,7 +1527,7 @@
     const ownedOther = getOwnedOtherIds();
     const ownedCount = ownedDimoo.length + ownedOther.length;
     els.albumBadge.textContent = String(ownedCount);
-    els.albumFeatureMeta.textContent = `${ownedDimoo.length} / 8 DIMOO`;
+    els.albumFeatureMeta.textContent = `${ownedDimoo.length} / 9 DIMOO`;
     els.statDimoo.textContent = String(ownedDimoo.length);
     els.statOther.textContent = String(ownedOther.length);
     els.statDraws.textContent = String(state.stats.draws);
@@ -1453,13 +1536,15 @@
       const count = state.collection[style.id] || 0;
       const unlocked = count > 0;
       const isOther = !style.redeemable;
+      const isHidden = Boolean(style.hidden);
       const metaLine = unlocked
         ? isOther
           ? `${style.ip} · ${style.seriesShort}`
           : `DIMOO · ${style.seriesShort}`
         : "还没遇见";
       const cardName = unlocked ? style.name : "？？？";
-      return `<div class="collect-card${unlocked ? "" : " is-locked"}${isOther ? " is-other" : ""}" style="--card-a:${style.palette.cardA};--card-b:${style.palette.cardB};--i:${index}">
+      const collectNo = isHidden ? "HIDDEN · 隐藏款" : `No.${style.no}${isOther ? " · OTHER" : ""}`;
+      return `<div class="collect-card${unlocked ? "" : " is-locked"}${isOther ? " is-other" : ""}${isHidden ? " is-hidden" : ""}" style="--card-a:${style.palette.cardA};--card-b:${style.palette.cardB};--i:${index}">
         <div class="collect-art">
           ${
             unlocked
@@ -1468,7 +1553,7 @@
           }
         </div>
         <div class="collect-meta">
-          <span class="collect-no">No.${style.no}${isOther ? " · OTHER" : ""}</span>
+          <span class="collect-no">${collectNo}</span>
           <b>${cardName}</b>
           <small>${metaLine}</small>
         </div>
@@ -1484,6 +1569,7 @@
       .filter(Boolean)
       .sort(
         (a, b) =>
+          Number(b.hidden) - Number(a.hidden) ||
           Number(b.redeemable) - Number(a.redeemable) ||
           a.ip.localeCompare(b.ip) ||
           a.seriesLabel.localeCompare(b.seriesLabel, "zh")
@@ -1491,13 +1577,13 @@
 
     els.machineRoster.innerHTML = caseStyles
       .map(
-        (style) => `<div class="roster-row">
+        (style) => `<div class="roster-row${style.hidden ? " roster-row--hidden" : ""}">
           <span class="roster-ip">${style.ip}</span>
           <div class="roster-detail">
             <b>${style.seriesLabel}</b>
             <p>${style.name}</p>
           </div>
-          <span class="roster-flag${style.redeemable ? "" : " roster-flag--no"}">${style.redeemable ? "可兑换" : "不兑换"}</span>
+          <span class="roster-flag${style.hidden ? " roster-flag--hidden" : style.redeemable ? "" : " roster-flag--no"}">${style.hidden ? "隐藏 · 可兑换" : style.redeemable ? "可兑换" : "不兑换"}</span>
         </div>`
       )
       .join("");
@@ -1604,7 +1690,7 @@
     const completedCase = state.caseOpened.length >= CONFIG.boxCount;
     if (completedCase) {
       // Seal a fresh case for the next draw. Daily chances are untouched.
-      state.items = makeCaseItems();
+      state.items = makeCaseItems(state.items);
       state.hints = makeHints();
       state.caseOpened = [];
       selectedBox = 0;
@@ -1680,6 +1766,32 @@
     }, 820);
   };
 
+  const reshuffleBatch = () => {
+    if (isDrawing || isHinting) {
+      showToast("等这一盒拆完再换批");
+      return;
+    }
+
+    const hadOpened = state.caseOpened.length > 0;
+    // Free batch switch: the daily chances, collection and stats stay intact.
+    // Only this case's unopened boxes, hints and positions are replaced.
+    state.items = makeCaseItems(state.items);
+    state.hints = makeHints();
+    state.caseOpened = [];
+    selectedBox = 0;
+    state.lastBox = 0;
+    pendingCaseToast = false;
+    saveState();
+    applyBoxState();
+    updateAll();
+    playShuffle();
+    showToast(
+      hadOpened
+        ? "换了一批新的十盒 · 已经拆到的都留在图鉴里"
+        : "换了一批新的十盒 · 今日次数不变"
+    );
+  };
+
   const openDrawDialog = (record) => {
     const boxNumber = pad(record.box + 1);
     els.drawCard.className = "draw-card is-opening";
@@ -1725,7 +1837,7 @@
       remaining > 0 ? `再挑一盒 · 还剩 ${remaining} 次` : "收好，回盒架";
     const repeatLine = countForStyle > 1 ? ` · 第 ${countForStyle} 次遇见` : "";
     const ownedLine = isDimoo
-      ? `已收进图鉴 · DIMOO ${ownedDimoo}/8${repeatLine}`
+      ? `已收进图鉴 · DIMOO ${ownedDimoo}/9${repeatLine}`
       : `已收进图鉴 · 其他 IP ${ownedOther}/8${repeatLine}`;
 
     const body = isDimoo
@@ -1755,6 +1867,18 @@
           ownClass: "result-own is-not-redeemable",
           live: `抽到了 ${style.ip} ${style.seriesLabel}的 ${style.name}，其他泡泡玛特产品，按约定不兑换，已收进图鉴`,
         };
+
+    if (style.hidden) {
+      body.cardClass = "draw-card is-hidden";
+      body.resultClass = "result result--hidden";
+      body.kicker = "HIDDEN FOUND · 隐藏款";
+      body.title = "是隐藏款 DIMOO！";
+      body.sub = "这一批的隐藏，被你找到了。<br>截图发给我，我去把它带回来。";
+      body.badgeClass = "result-badge result-badge--hidden";
+      body.badge = "DIMOO 隐藏款 · 可兑换";
+      body.series = `DIMOO · ${style.seriesLabel} · 隐藏款`;
+      body.live = `抽到了隐藏款 DIMOO ${style.name}，可以兑换，已收进图鉴`;
+    }
 
     els.drawCard.className = body.cardClass;
     els.drawCard.innerHTML = `<div class="${body.resultClass}">
@@ -1794,7 +1918,10 @@
     if (!style) return;
     isRevealed = true;
     renderProductResult(record);
-    if (style.redeemable) {
+    if (style.hidden) {
+      playHidden();
+      launchConfetti();
+    } else if (style.redeemable) {
       playPrize();
       launchConfetti();
     } else {
@@ -1948,6 +2075,11 @@
     noiseBurst(0.09, 0.018, 0.04);
   };
   const playRustle = () => noiseBurst(0.2, 0.035, 0);
+  const playShuffle = () => {
+    noiseBurst(0.24, 0.032, 0);
+    tone(392, 0.16, { type: "triangle", gain: 0.021, slideTo: 523.25 });
+    tone(659.25, 0.22, { type: "sine", gain: 0.014, delay: 0.08 });
+  };
   const playHint = () => {
     noiseBurst(0.2, 0.028, 0);
     tone(330, 0.16, { type: "triangle", gain: 0.021, slideTo: 280 });
@@ -1965,6 +2097,15 @@
     });
     tone(1567.98, 0.7, { type: "sine", gain: 0.014, delay: 0.43 });
     noiseBurst(0.25, 0.018, 0.5);
+  };
+  const playHidden = () => {
+    const notes = [659.25, 783.99, 987.77, 1318.51, 1567.98, 2093];
+    notes.forEach((frequency, index) => {
+      tone(frequency, 0.5, { type: "sine", gain: 0.026, delay: index * 0.085 });
+      tone(frequency * 2, 0.38, { type: "sine", gain: 0.008, delay: index * 0.085 + 0.02 });
+    });
+    noiseBurst(0.22, 0.02, 0.42);
+    tone(1046.5, 0.9, { type: "sine", gain: 0.012, delay: 0.58 });
   };
   const playOther = () => {
     tone(523.25, 0.4, { type: "sine", gain: 0.022 });
@@ -2042,6 +2183,7 @@
 
     els.drawButton.addEventListener("click", beginDraw);
     els.hintButton.addEventListener("click", useHint);
+    els.reshuffleButton?.addEventListener("click", reshuffleBatch);
 
     els.soundButton.addEventListener("click", () => {
       state.sound = !state.sound;
