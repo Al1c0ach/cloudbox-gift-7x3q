@@ -1,5 +1,5 @@
 /* 云朵抽盒社 · offline shell */
-const CACHE_NAME = "cloudbox-gift-v8";
+const CACHE_NAME = "cloudbox-gift-v9";
 const APP_SHELL = [
   "./",
   "./index.html",
